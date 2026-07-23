@@ -1,291 +1,435 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
-
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="Xu579IDe6Me0Qy2qEkL-4LlUj_lWzowfAlFo2r2qKvw" />
-    <title>Jiacheng Hong</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <title>Jiacheng Hong — Tropical Cyclone Research</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg: #fafaf9;
+            --card: #ffffff;
+            --text: #1c1917;
+            --text-secondary: #57534e;
+            --text-muted: #78716c;
+            --accent: #1e40af;
+            --accent-light: #dbeafe;
+            --border: #e7e5e4;
+            --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            --radius: 8px;
+            --max-width: 840px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(250,250,249,0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        nav .nav-inner {
+            max-width: var(--max-width); margin: 0 auto;
+            display: flex; align-items: center; gap: 28px;
+            padding: 0 24px; height: 52px;
+        }
+        nav a {
+            text-decoration: none; color: var(--text-secondary);
+            font-size: 13.5px; font-weight: 500;
+            letter-spacing: 0.01em;
+            transition: color 0.15s;
+        }
+        nav a:hover { color: var(--accent); }
+        nav .nav-name { font-weight: 600; color: var(--text); font-size: 15px; margin-right: auto; }
+
+        /* ── Layout ── */
+        .section { padding: 64px 24px; }
+        .section-alt { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .container { max-width: var(--max-width); margin: 0 auto; }
+
+        /* ── Typography ── */
+        .section-title {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 26px; font-weight: 500;
+            color: var(--text); margin-bottom: 32px;
+            letter-spacing: -0.01em;
+        }
+        h3 { font-size: 17px; font-weight: 600; margin-bottom: 4px; color: var(--text); }
+        h4 { font-size: 15px; font-weight: 500; color: var(--text-secondary); margin-bottom: 4px; }
+
+        /* ── Header / Lead ── */
+        #lead { padding: 80px 24px 56px; }
+        #lead .container { text-align: center; }
+        #lead .name-zh { font-size: 21px; color: var(--text-secondary); font-weight: 400; margin-bottom: 6px; }
+        #lead h1 {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 42px; font-weight: 500; color: var(--text);
+            letter-spacing: -0.02em; margin-bottom: 8px;
+        }
+        #lead .subtitle {
+            font-size: 17px; color: var(--text-secondary); font-weight: 400;
+            margin-bottom: 20px; line-height: 1.6;
+        }
+        #lead .subtitle em { font-style: italic; color: var(--accent); }
+        #lead .links {
+            display: flex; justify-content: center; gap: 18px;
+            margin: 20px 0 28px; flex-wrap: wrap;
+        }
+        #lead .links a {
+            display: inline-flex; align-items: center; gap: 7px;
+            text-decoration: none; color: var(--text-secondary);
+            font-size: 14px; font-weight: 500;
+            padding: 8px 18px; border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: all 0.15s;
+        }
+        #lead .links a:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+        #lead .links a i { font-size: 14px; }
+        .btn-cv {
+            display: inline-block; background: var(--accent); color: #fff !important;
+            padding: 10px 28px; border-radius: 24px; text-decoration: none;
+            font-size: 14px; font-weight: 600; letter-spacing: 0.01em;
+            transition: background 0.2s;
+        }
+        .btn-cv:hover { background: #1e3a8a; }
+
+        /* ── About ── */
+        #about p { font-size: 15px; color: var(--text-secondary); line-height: 1.8; }
+
+        /* ── Education ── */
+        .edu-item {
+            display: flex; justify-content: space-between; align-items: baseline;
+            padding: 18px 0; border-bottom: 1px solid var(--border);
+            gap: 24px; flex-wrap: wrap;
+        }
+        .edu-item:last-child { border-bottom: none; }
+        .edu-info h3 { margin-bottom: 2px; }
+        .edu-info h4 { font-weight: 400; }
+        .edu-date {
+            font-size: 13px; color: var(--text-muted); font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* ── Research ── */
+        .research-intro { font-size: 15px; color: var(--text-secondary); margin-bottom: 36px; line-height: 1.8; }
+        .research-topic { margin-bottom: 28px; }
+        .research-topic h3 {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 19px; font-weight: 500; margin-bottom: 8px;
+            color: var(--accent);
+        }
+        .research-topic h3::before { content: '▸ '; font-size: 14px; }
+        .research-topic p { color: var(--text-secondary); line-height: 1.8; text-align: justify; }
+
+        /* ── Publications ── */
+        .pub-section { margin-bottom: 32px; }
+        .pub-section h3 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); margin-bottom: 16px; }
+        .pub-item {
+            padding: 14px 0; border-bottom: 1px solid var(--border);
+            font-size: 14px; color: var(--text-secondary); line-height: 1.7;
+        }
+        .pub-item:last-child { border-bottom: none; }
+        .pub-item strong { color: var(--text); font-weight: 600; }
+        .pub-item .journal { font-style: italic; color: var(--text-secondary); }
+        .pub-item a {
+            display: inline-block; margin-left: 6px; font-size: 12px;
+            color: var(--accent); text-decoration: none; font-weight: 500;
+            white-space: nowrap;
+        }
+        .pub-item a::after { content: ' →'; }
+        .pub-item .pub-meta { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+
+        /* ── Code & Skills ── */
+        .skills { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 24px; }
+        .skill-tag {
+            display: inline-block; padding: 6px 16px;
+            background: var(--accent-light); color: var(--accent);
+            border-radius: 16px; font-size: 13px; font-weight: 500;
+        }
+        .code-content p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px; }
+        .code-content a { color: var(--accent); font-weight: 500; text-decoration: none; }
+        .code-content a:hover { text-decoration: underline; }
+
+        /* ── Gallery ── */
+        #gallery p { color: var(--text-muted); font-style: italic; }
+
+        /* ── Footer ── */
+        footer { padding: 40px 24px; text-align: center; }
+        footer p { font-size: 13px; color: var(--text-muted); line-height: 1.8; }
+        footer b { color: var(--text-secondary); }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            #lead h1 { font-size: 32px; }
+            #lead { padding: 48px 24px 36px; }
+            .section { padding: 40px 20px; }
+            .edu-item { flex-direction: column; gap: 4px; }
+            nav .nav-inner { gap: 14px; overflow-x: auto; }
+            nav a { font-size: 12.5px; }
+        }
+
+        @media print {
+            nav, #lead .links, .btn-cv, footer { display: none; }
+            body { font-size: 12px; }
+            .section { padding: 20px 0; }
+        }
+    </style>
 </head>
-
 <body>
-    <div id="mobile-menu-open" class="shadow-large">
-        <i class="fa fa-bars" aria-hidden="true"></i>
+
+<!-- ════════════ Navigation ════════════ -->
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="nav-name">Jiacheng Hong</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#code">Code</a>
+        <a href="#gallery">Gallery</a>
     </div>
-    <!-- End #mobile-menu-toggle -->
-    <header class="sticky">
-        <div id="mobile-menu-close">
-            <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
+</nav>
+
+<!-- ════════════ Header ════════════ -->
+<header id="lead">
+    <div class="container">
+        <div class="name-zh">洪加诚</div>
+        <h1>Jiacheng Hong</h1>
+        <p class="subtitle">
+            PhD Student in <em>Physical Oceanography</em><br>
+            Shanghai Jiao Tong University
+        </p>
+        <div class="links">
+            <a href="mailto:hongjc1996@163.com"><i class="fa-solid fa-envelope"></i> Email</a>
+            <a href="https://github.com/JiachengHong" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://twitter.com/JiachengHong24" target="_blank"><i class="fa-brands fa-twitter"></i> Twitter</a>
+            <a href="https://www.researchgate.net/profile/Jiacheng-Hong" target="_blank"><i class="fa-brands fa-researchgate"></i> ResearchGate</a>
         </div>
-        <ul id="menu" class="shadow">
-            
-            <li>
-                <a href="#about">About me</a>
-            </li>
-            <li>
-                <a href="#education">Education</a>
-            </li>
-            <li>
-                <a href="#research">Research</a>
-            </li>
-            <li>
-                <a href="#publications">Publications</a>
-            </li>
-            <li>
-                <a href="#code">Code&Vedio</a>
-            </li>
-            <li>
-                <a href="#code">Gallery</a>
-            </li>
-
-        </ul>
-    </header>
-    <!-- End header -->
-
-    <div id="lead">
-        <div id="lead-content">
-            <h1 style="color:black">Jiacheng Hong</h1>
-            <h4 style="color:black"></h4>
-            <h2 style="color:#154360">洪加诚</h2>
-            <a href="#" class="btn-rounded-white">Download CV</a>
-            <h4 style="color:black"></h4>
-            <div class="social">
-                    <ul>
-                        <li>
-                            <a href="https://github.com/JiachengHong" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="mailto:hongjc1996@163.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
-                        </li>
-			 <li>
-                            <a href="https://twitter.com/JiachengHong24" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        </li>
-
-
-
-			    
-                    </ul>
-                </div>
-            
-        </div>
-        <!-- End #lead-content -->
-
-<!--        <div id="lead-overlay"></div>-->
-
-        <div id="lead-down">
-            <span>
-                <i class="fa fa-chevron-down" aria-hidden="true"></i>
-            </span>
-        </div>
-        <!-- End #lead-down -->
+        <a href="#" class="btn-cv">Download CV</a>
     </div>
-    <!-- End #lead -->
+</header>
 
-    <div id="about" class="background-alt">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h2 class="heading"><b>About Me</b></h2>
-                </div>
-                <div class="col-md-8", style="text-align:justify;">
-                    <p>
-                        I am currently a PHD student in Shanghai Jiao Tong University. With great enthusiasm for Atmospheric Science and Physical Oceanography,  my research centers on tropical cyclone.  
-			    My interests include TC internal dynamics and TC climatology. I approach the problems by theory, 
-			    observationsal data and machine Learning. Feel free to contact me if you have interests in my research.
-                    </p>
-                </div>
+<!-- ════════════ About ════════════ -->
+<section id="about" class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p>
+            I am a PhD student in Physical Oceanography at Shanghai Jiao Tong University,
+            advised by Prof. Qiaoyan Wu. My research focuses on <strong>tropical cyclone dynamics
+            and climatology</strong> — including TC intensification mechanisms, diurnal variations,
+            outer-region size growth, and machine learning applications for TC forecasting.
+            I combine theory, observational data analysis, and machine learning to address
+            these problems. Feel free to reach out if you share these interests.
+        </p>
+    </div>
+</section>
+
+<!-- ════════════ Education ════════════ -->
+<section id="education" class="section">
+    <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="edu-item">
+            <div class="edu-info">
+                <h3>Shanghai Jiao Tong University</h3>
+                <h4>PhD in Physical Oceanography · Advisor: Prof. Qiaoyan Wu</h4>
+            </div>
+            <span class="edu-date">2021 – Present</span>
+        </div>
+        <div class="edu-item">
+            <div class="edu-info">
+                <h3>Second Institute of Oceanography, MNR</h3>
+                <h4>M.Sc. in Physical Oceanography · Advisor: Prof. Qiaoyan Wu</h4>
+            </div>
+            <span class="edu-date">2018 – 2021</span>
+        </div>
+        <div class="edu-item">
+            <div class="edu-info">
+                <h3>Nanjing University of Information Science and Technology</h3>
+                <h4>B.Sc. in Atmospheric Science</h4>
+            </div>
+            <span class="edu-date">2014 – 2018</span>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ Research ════════════ -->
+<section id="research" class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">Research</h2>
+        <p class="research-intro">
+            My work aims to understand the mechanisms governing tropical cyclone intensification,
+            structure, and variability — across diurnal to climate timescales.
+        </p>
+
+        <div class="research-topic">
+            <h3>Diurnal Variations in Tropical Cyclones</h3>
+            <p>
+                The diurnal cycle is a fundamental mode of climate system variability, and numerous
+                aspects of TCs exhibit diurnal fluctuations. Our work has shown that TC formation,
+                intensification, RMW contraction, and 34-kt wind radius (R34) growth all exhibit
+                nocturnal preference, with peak change rates at 0300–0900 LST for rapidly intensifying
+                storms — linked to the greatest coverage of very deep convective clouds at 0300–0600 LST.
+                These results highlight the critical role of radiative forcing on TC intensity and structure.
+            </p>
+        </div>
+
+        <div class="research-topic">
+            <h3>Rapid Intensification of Tropical Cyclones</h3>
+            <p>
+                Rapid intensification (RI) — defined as an intensity increase exceeding 30 kt in 24 h —
+                is experienced by most category 4–5 hurricanes at least once. We find that RI-favorable
+                environments are modulated by global climate variability. Beyond large-scale conditions,
+                convective bursts are critical triggers for RI. To advance RI prediction in North Atlantic
+                TCs, we developed a machine learning model integrating 6-hourly SHIPS predictors with
+                very deep convective cloud data (IR brightness temperatures &lt; 208 K). The ML model
+                outperforms operational forecasts at key thresholds, demonstrating the potential of
+                hourly cloud observations — with their pronounced diurnal signals — to improve RI forecasting.
+            </p>
+        </div>
+
+        <div class="research-topic">
+            <h3>TC Outer Region Size Growth</h3>
+            <p>
+                The destructive potential of TCs depends on both intensity and outer-region size.
+                Our research reveals that while both intensification and R34 growth are linked to very
+                deep convection, their effects differ by convective location. TC fullness serves as a
+                reliable indicator of convective spatial distribution, reflecting the coupling between
+                wind structure and convective activity. In low-fullness storms, deep convection near R34
+                enhances low-level angular momentum flux, promoting outer size growth; in high-fullness
+                storms, deep convection concentrates near the center with smaller RMW, facilitating
+                intensification. These findings illuminate the importance of wind structure in modulating
+                TC intensity and size evolution.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ Publications ════════════ -->
+<section id="publications" class="section">
+    <div class="container">
+        <h2 class="section-title">Publications</h2>
+        <p style="color:var(--text-muted);font-size:14px;margin-bottom:28px;">
+            For a complete list, see <a href="https://www.researchgate.net/profile/Jiacheng-Hong" style="color:var(--accent);">ResearchGate</a>.
+        </p>
+
+        <div class="pub-section">
+            <h3>Published</h3>
+
+            <div class="pub-item">
+                <strong>Hong, J.</strong> and Wu, Q.
+                <span class="journal">Diurnal variations in tropical cyclone formation and associated convective features.</span>
+                <span class="journal">Geophysical Research Letters</span>, 51, e2024GL111413, 2024.
+                <a href="https://doi.org/10.1029/2024GL111413">DOI</a>
+            </div>
+
+            <div class="pub-item">
+                Wu, Q., Luo, T., and <strong>Hong, J.</strong>
+                <span class="journal">Incorporating Hourly Convective Cloud Data Into Tropical Cyclone Rapid Intensification Forecasting With Machine Learning.</span>
+                <span class="journal">Journal of Geophysical Research: Machine Learning and Computation</span>, 2, e2025JH000595, 2025.
+                <a href="https://doi.org/10.1029/2025JH000595">DOI</a>
+            </div>
+
+            <div class="pub-item">
+                <strong>Hong, J.</strong> and Wu, Q.
+                <span class="journal">Tropical Cyclone Fullness and Outer Region Size Growth: The Role of Spatial Distribution of Very Deep Convection.</span>
+                <span class="journal">Geophysical Research Letters</span>, 50, e2023GL105956, 2023.
+                <a href="https://doi.org/10.1029/2023GL105956">DOI</a>
+            </div>
+
+            <div class="pub-item">
+                <strong>Hong, J.</strong> and Wu, Q.
+                <span class="journal">Diurnal Variations of Tropical Cyclone Outer Region Size Growth.</span>
+                <span class="journal">Atmospheric Science Letters</span>, e1183, 2023.
+                <a href="https://doi.org/10.1002/asl.1183">DOI</a>
+            </div>
+
+            <div class="pub-item">
+                Wang, H., Wu, Q., and <strong>Hong, J.</strong>
+                <span class="journal">Climate Control of Tropical Cyclone Rapid Intensification Frequency in the North Indian Ocean.</span>
+                <span class="journal">Environmental Research Communications</span>, 4, 121004, 2022.
+                <a href="https://doi.org/10.1088/2515-7620/aca646">DOI</a>
+            </div>
+
+            <div class="pub-item">
+                Wu, Q. and <strong>Hong, J.</strong>
+                <span class="journal">Diurnal variations in contraction of the radius of maximum tangential wind in tropical cyclones.</span>
+                <span class="journal">Geophysical Research Letters</span>, 49(3), 2022.
+                <a href="https://doi.org/10.1029/2021GL096048">DOI</a>
+            </div>
+
+            <div class="pub-item">
+                <strong>Hong, J.</strong> and Wu, Q.
+                <span class="journal">Modulation of global sea surface temperature on tropical cyclone rapid intensification frequency.</span>
+                <span class="journal">Environmental Research Communications</span>, 3(4), 2021.
+                <a href="https://doi.org/10.1088/2515-7620/abf39b">DOI</a>
+            </div>
+
+            <div class="pub-item">
+                Wu, Q., <strong>Hong, J.</strong>, and Ruan, Z.
+                <span class="journal">Diurnal Variations in Tropical Cyclone Intensification.</span>
+                <span class="journal">Geophysical Research Letters</span>, 47(23), 2020.
+                <a href="https://doi.org/10.1029/2020GL090397">DOI</a>
             </div>
         </div>
     </div>
-    <!-- End #about -->
+</section>
 
-
-    <div id="education">
-	    
-        <h2 class="heading"><b>Education</b></h2>
-	    
-        <!-- End .education-block -->
-	<div class="education-block">
-            <h3>Shanghai Jiao Tong University</h3>
-            <span class="education-date">Sept 2021 to present</span>
-            <h4>PHD student in Physical Oceanography<br>Advisor: Qiaoyan Wu</h4>
+<!-- ════════════ Code & Skills ════════════ -->
+<section id="code" class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">Code & Tools</h2>
+        <div class="skills">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Xarray</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">MATLAB</span>
         </div>
-
-        <div class="education-block">
-            <h3>Second Insititute of Oceanography<br>MNR</h3>
-            <span class="education-date">Sept 2018 - June 2021</span>
-            <h4>M.D. in Physical Oceanography<br>Advisor: Qiaoyan Wu</h4>
-        </div>
-        
-        <div class="education-block">
-            <h3>Nanjing University of Science Information and Technology</h3>
-            <span class="education-date">Sept 2014 - June 2018</span>
-            <h4>B.D. in Atmospheric Science</h4>
-        </div>
-        <!-- End .education-block -->
-    </div>
-    <!-- End #education -->
-        
-    <div id="research" class="background-alt">
-        <h2 class="heading"><b>Research</b></h2>
-        <h4 class="section-subheading text-muted">I study the tropical cyclones (TCs)， trying to understand the mechanisms involved in TC intensification and size growth. </h4>
-        <div class="container">
-            <div class="row research-topic">
-                <div class="col-md-4">
-			<img src="images/444.png" class="img-responsive" alt="">
-			<img src="images/444.png" class="img-responsive" alt="">
-                        <img src="images/1000.jpg" class="img-responsive" alt="">
-			<img src="images/444.png" class="img-responsive" alt="">
-			<img src="images/444.png" class="img-responsive" alt="">
-			<img src="images/2222.png" class="img-responsive" alt="">
-			<img src="images/444.png" class="img-responsive" alt="">
-			<img src="images/444.png" class="img-responsive" alt="">
-			<img src="images/3333.png" class="img-responsive" alt="">
-                </div>
-                <div class="col-md-8", style="text-align:justify;">
-                        <h3><li>Diurnal variations in TCs </h3>
-                        <p>
-			The diurnal cycle is a fundamental characteristic of the variability of the global climate system, various aspects of TCs also fluctuate with the diurnal cycle. 
-				Our recent works found that TC formation, intensification, radius of maximum wind (RMW) contraction, and growth of the 34-kt wind radius (R34) were nocturnally prefered. 
-				The peak change rates were observed at 0300-0900 LST for rapidly intensifying storms associated with the greatest coverage of very deep convective cloud at 0300–0600 LST.
-				It indicated the importance of radiative forcing on TC intensity and structure. 
-                        </p>
-			
-			<h3><li>Rapid intensification of TCs </h3>
-                        <p>
-                        TC Rapid intensification (RI) is generally defined as an intensification of more than 30 knots in 24 h, most category 4 and 5 hurricanes underwent RI at least once during their lifetimes. 
-				Our recent work suggested that RI favored environments are under the control of global climate variability. However, beyond large-scale environmental conditions, 
-				convective bursts have emerged as a critical factor in triggering RI. To advance the prediction of RI in North Atlantic Tropical Cyclones (TCs), we developed a machine learning (ML) model that 
-				integrates 6-hourly predictors from the Statistical Hurricane Intensity Prediction Scheme (SHIPS) with additional data on very deep convective clouds, characterized by infrared brightness temperatures below 208 K. 
-				The ML model demonstrates superior performance compared to operational models at specific thresholds. These findings underscore the potential of hourly cloud data, particularly with its pronounced diurnal variations, to significantly improve the accuracy of TC RI forecasting.
-                        </p>
-				<h3><li> TC outer region size growth </h3>
-                        <p>
-                        The destructive potential of TCs is primarily determined by two key factors: intensity and the size of the outer region.
-		        Our study indicates that although both intensification and R34 (radius of 34 kt) growth are associated with very deep convection, their effects vary depending on the location of the convection.
-			TC fullness can serve as a reliable indicator of the spatial distribution of very deep convection, reflecting the coupling between wind field structure and convective activity. 
-			In storms with varying fullness, spatial differences in convection impact intensification and outer region size growth differently: storms with lower fullness have more deep convection near R34, 
-			which induces greater low-level angular momentum flux, promoting R34 growth; storms with higher fullness feature more deep convection toward the storm center and a smaller radius of maximum wind, facilitating intensification.
-			These findings shed light on the importance of wind structure in TC intensification and outer-size growth.	
-                        </p>
-                </div>
-            </div>
+        <div class="code-content">
+            <p>
+                I believe open access to research code is essential for scientific reproducibility.
+                My analysis scripts and machine learning models are available on
+                <a href="https://github.com/JiachengHong" target="_blank">GitHub <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:11px;"></i></a>.
+            </p>
+            <p>
+                Python has become my primary tool — its rich ecosystem (xarray, scikit-learn, PyTorch)
+                enables efficient workflows from satellite data processing to deep learning model development.
+            </p>
         </div>
     </div>
-    <!-- End #projects -->
+</section>
 
-   <div id="publications">
-        <h2 class="heading"><b>Publications</b></h2>
-            <br>
-	   <h4 class="section-subheading text-muted">For a full publication list that includes my work, please see <a href="https://www.researchgate.net/profile/Jiacheng-Hong">ResearchGate</a>.</h4>
-	   <h3>Submited</h3>
-	      
-           <h3>Published</h3>	 
-	     <div class="section-subheading text-muted"， style="text-align:left;">
-		<ul><li> Wu.Q, Luo.T and <strong> Hong.J.</strong> Incorporating Hourly Convective Cloud Data Into Tropical Cyclone Rapid Intensification Forecasting With Machine Learning. <i>Journal of Geophysical Research: Machine Learning and Computation</i>. 2025. 2. e2025JH000595.
-                <a href="https://doi.org/10.1029/2025JH000595">online</a>
-	        <br /></li></ul></div>
-	      <div class="section-subheading text-muted"， style="text-align:left;">
-		<ul><li> <strong> Hong.J</strong> and Wu.Q. Diurnal variations in tropical cyclone formation and associated convective features. <i>Geophysical Research Letters</i>. 2023. 51. e2024GL111413.
-                <a href="https://doi.org/10.1029/2024GL111413">online</a>
-	        <br /></li></ul></div>
-	   <div class="section-subheading text-muted"， style="text-align:left;">
-		<ul><li> <strong> Hong.J</strong> and Wu.Q. Tropical Cyclone Fullness and Outer Region Size Growth: The Role of Spatial Distribution of Very Deep Convection. <i>Geophysical Research Letters</i>. 2023. 50. e2023GL105956.
-                <a href="https://doi.org/10.1029/2023GL105956">online</a>
-	        <br /></li></ul></div>
-	   <div class="section-subheading text-muted"， style="text-align:left;">
-		<ul><li> <strong> Hong.J</strong> and Wu.Q. Diurnal Variations of Tropical Cyclone Outer Region Size Growth. <i>Atmospheric Science Letters</i>. 2023. e1183.
-                <a href=" https://doi.org/10.1002/asl.1183">online</a>
-	        <br /></li></ul></div>
-	   <div class="section-subheading text-muted"， style="text-align:left;">
-		<ul><li> Wang.H, Wu.Q and <strong> Hong.J.</strong> Climate Control of Tropical Cyclone Rapid Intensification Frequency in the North Indian Ocean. <i>Environmental Research Communications</i>. 2022. 4(121004).
-                <a href="https://doi.org/10.1088/2515-7620/aca646">online</a>
-	        <br /></li></ul></div>
-	   <div class="paragraph"， style="text-align:left;">
-		<ul><li> Wu.Q and <strong> Hong.J</strong>. Diurnal variations in contraction of the radius of maximum tangential wind in tropical cyclones. <i>Geophysical Research Letters</i>. 2022. 49(3).
-                <a href="https://doi.org/10.1029/2021GL096048">online</a>
-		<br /></li></ul></div>
-	    <div class="paragraph"， style="text-align:left;">
-		<ul><li> <strong> Hong.J</strong> and Wu.Q. Modulation of global sea surface temperature on tropical cyclone rapid intensification frequency. <i>Environmental Research Communications</i>. 2021. 3(4).
-                <a href="https://doi.org/10.1088/2515-7620/abf39b">online</a>
-		<br /></li></ul></div>
-	   <div class="paragraph"， style="text-align:left;">
-                <ul><li> Wu.Q, <strong> Hong.J</strong> and Ruan.Z. Diurnal Variations in Tropical Cyclone Intensification. <i>Geophysical Research Letters</i>. 2020. 47(23).
-                <a href="https://doi.org/10.1029/2020GL090397">online</a>
-	        <br /></li></ul></div>    
-    </div>  
-	
-    <div id="code" class="background-alt">
-        <h2 class="heading"><b>Code & Video</b></h2>
-        <h4 class="section-subheading text-muted">I use these tools to make the science.</h4>
-        <ul>
-            <li>Python</li>
-	    <li>Xarray</li>
-            <li>Pytorch</li>
-            <li>Matlab</li>
-        </ul>
-        <br>
-        <div class="container">
-            <div class="row research-topic">
-                <div class="col-md-4">
-                        <img src="images/code1.png" class="img-responsive" alt="">
-                </div>
-                <div class="col-lg-8">
-                        <br> 
-                        <p class="paragraph"， style="text-align:left;">The scientific community is becoming increasingly aware that open access to research code is an essential ingredient for scientific reproducibility and progress. My research code can be found in my online github repositories. <a href="https://github.com/JiachengHong"> Go to my github</a>
-                        <br>
-                        <p class="paragraph"， style="text-align:left;">Python has become my main programming weapon since I realized its powerful and efficient features.
-                        <br>
-                </div>
-            </div>
-        </div>
+<!-- ════════════ Gallery ════════════ -->
+<section id="gallery" class="section">
+    <div class="container">
+        <h2 class="section-title">Gallery</h2>
+        <p>Coming soon…</p>
     </div>
-	
-	
-	
+</section>
 
-    <div id="code">
-        <h2 class="heading"><b>Gallery</b></h2>
-        <p class="text-muted">Coming soon...... </p>
+<!-- ════════════ Footer ════════════ -->
+<footer>
+    <div class="container">
+        <p>
+            <b>Jiacheng Hong</b> · hongjc1996@163.com<br>
+            Copyright &copy; 2024 Jiacheng Hong
+        </p>
     </div>
-    <!-- End #skills -->
+</footer>
 
-    <!--<div id="contact">
-        <h2>Get in Touch</h2>
-        <div id="contact-form">
-            <form method="POST" action="https://formspree.io/email@email.com">
-                <input type="hidden" name="_subject" value="Contact request from personal website" />
-                <input type="email" name="_replyto" placeholder="Your email" required>
-                <textarea name="message" placeholder="Your message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </div>
-        <!-- End #contact-form
-    </div>
-    End #contact -->
-
-    <footer class="background-alt">
-        <div class="container">
-            <div class="row">
-                    <p>
-                        <b>Jiacheng Hong</b><br>
-                        <b>hongjc1996@163.com</b><br>
-                        <br>Copyright &copy; 2023 Jiacheng Hong
-                    </p>
-
-            </div>
-        </div>
-    </footer>
-    <!-- End footer -->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/scripts.min.js"></script>
 </body>
-
 </html>
