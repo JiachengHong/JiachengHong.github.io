@@ -75,6 +75,12 @@
         /* ── Header / Lead ── */
         #lead { padding: 80px 24px 56px; }
         #lead .container { text-align: center; }
+        #lead .profile-photo {
+            width: 140px; height: 140px; border-radius: 50%;
+            object-fit: cover; margin-bottom: 20px;
+            border: 3px solid var(--border);
+            box-shadow: var(--shadow);
+        }
         #lead .name-zh { font-size: 21px; color: var(--text-secondary); font-weight: 400; margin-bottom: 6px; }
         #lead h1 {
             font-family: 'Newsreader', Georgia, serif;
@@ -197,6 +203,7 @@
     <div class="nav-inner">
         <a href="#" class="nav-name">Jiacheng Hong</a>
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
         <a href="#education">Education</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
@@ -208,6 +215,7 @@
 <!-- ════════════ Header ════════════ -->
 <header id="lead">
     <div class="container">
+        <img src="pic1.jpg" alt="Jiacheng Hong" class="profile-photo">
         <div class="name-zh">洪加诚</div>
         <h1>Jiacheng Hong</h1>
         <p class="subtitle">
@@ -229,12 +237,27 @@
         <h2 class="section-title">About Me</h2>
         <p>
             I am a postdoctoral researcher at the Second Institute of Oceanography, Ministry of Natural Resources, China.
-            My research focuses on <strong>tropical cyclone dynamics
-            and climatology</strong> — including TC intensification mechanisms, 
-            outer-region size growth, and machine learning applications for TC forecasting.
-            I combine theory, observational data analysis, and machine learning to address
-            these problems. Feel free to reach out if you share these interests.
+            My research focuses on <strong>tropical cyclone mechanisms and forecasting</strong>,
+            including TC intensification dynamics, TC climatology,
+            TC numerical simulation, and AI-based forecasting.
+            I combine theory, numerical modeling, observational analysis, and deep learning
+            to advance our understanding and prediction of tropical cyclones.
+            Feel free to reach out if you share these interests.
         </p>
+    </div>
+</section>
+
+<!-- ════════════ Experience ════════════ -->
+<section id="experience" class="section">
+    <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <div class="edu-item">
+            <div class="edu-info">
+                <h3>Second Institute of Oceanography, MNR</h3>
+                <h4>Postdoctoral Researcher · Advisor: Prof. Tao Lian</h4>
+            </div>
+            <span class="edu-date">2025 – Present</span>
+        </div>
     </div>
 </section>
 
@@ -330,6 +353,34 @@
             <h3>Published</h3>
 
             <div class="pub-item">
+                <strong>Hong, J.</strong> and Lian, T.
+                <span class="journal">Poleward migration of tropical cyclone lifetime maximum size.</span>
+                <span class="journal">Environmental Research Letters</span>, 2026.
+                <a href="https://doi.org/10.1088/1748-9326/ae7a97">DOI</a>
+            </div>
+
+            <div class="pub-item">
+                Lou, W., Liu, T., <strong>Hong, J.</strong>, Guo, Y., Xiong, Q., Zhang, H., ... &amp; Sun, W.
+                <span class="journal">Net contributions of multiple oceanic warm and cold thermal events to tropical cyclone intensity revealed by idealized coupled simulations.</span>
+                <span class="journal">Geoscience Letters</span>, 13(1), 40, 2026.
+                <a href="https://doi.org/10.1186/s40562-026-00491-0">DOI</a>
+            </div>
+
+            <div class="pub-item">
+                Zhang, H., Li, Q., Chen, D., Shang, X., Tian, D., Liu, T., He, M., <strong>Hong, J.</strong>, Wei, G., &amp; Liu, J.
+                <span class="journal">Atmospheric and oceanic data from a triangle-shaped moored array in the northern South China Sea during 2016.</span>
+                <span class="journal">Scientific Data</span>, 13(1), 467, 2026.
+                <a href="https://doi.org/10.1038/s41597-026-06801-7">DOI</a>
+            </div>
+
+            <div class="pub-item">
+                Wu, Q., Luo, T., and <strong>Hong, J.</strong>
+                <span class="journal">Incorporating hourly convective cloud data into tropical cyclone rapid intensification forecasting with machine learning.</span>
+                <span class="journal">Journal of Geophysical Research: Machine Learning and Computation</span>, 2, e2025JH000595, 2025.
+                <a href="https://doi.org/10.1029/2025JH000595">DOI</a>
+            </div>
+
+            <div class="pub-item">
                 <strong>Hong, J.</strong> and Wu, Q.
                 <span class="journal">Diurnal variations in tropical cyclone formation and associated convective features.</span>
                 <span class="journal">Geophysical Research Letters</span>, 51, e2024GL111413, 2024.
@@ -337,29 +388,22 @@
             </div>
 
             <div class="pub-item">
-                Wu, Q., Luo, T., and <strong>Hong, J.</strong>
-                <span class="journal">Incorporating Hourly Convective Cloud Data Into Tropical Cyclone Rapid Intensification Forecasting With Machine Learning.</span>
-                <span class="journal">Journal of Geophysical Research: Machine Learning and Computation</span>, 2, e2025JH000595, 2025.
-                <a href="https://doi.org/10.1029/2025JH000595">DOI</a>
-            </div>
-
-            <div class="pub-item">
                 <strong>Hong, J.</strong> and Wu, Q.
-                <span class="journal">Tropical Cyclone Fullness and Outer Region Size Growth: The Role of Spatial Distribution of Very Deep Convection.</span>
+                <span class="journal">Tropical cyclone fullness and outer region size growth: The role of spatial distribution of very deep convection.</span>
                 <span class="journal">Geophysical Research Letters</span>, 50, e2023GL105956, 2023.
                 <a href="https://doi.org/10.1029/2023GL105956">DOI</a>
             </div>
 
             <div class="pub-item">
                 <strong>Hong, J.</strong> and Wu, Q.
-                <span class="journal">Diurnal Variations of Tropical Cyclone Outer Region Size Growth.</span>
+                <span class="journal">Diurnal variations of tropical cyclone outer region size growth.</span>
                 <span class="journal">Atmospheric Science Letters</span>, e1183, 2023.
                 <a href="https://doi.org/10.1002/asl.1183">DOI</a>
             </div>
 
             <div class="pub-item">
                 Wang, H., Wu, Q., and <strong>Hong, J.</strong>
-                <span class="journal">Climate Control of Tropical Cyclone Rapid Intensification Frequency in the North Indian Ocean.</span>
+                <span class="journal">Climate control of tropical cyclone rapid intensification frequency in the North Indian Ocean.</span>
                 <span class="journal">Environmental Research Communications</span>, 4, 121004, 2022.
                 <a href="https://doi.org/10.1088/2515-7620/aca646">DOI</a>
             </div>
@@ -380,7 +424,7 @@
 
             <div class="pub-item">
                 Wu, Q., <strong>Hong, J.</strong>, and Ruan, Z.
-                <span class="journal">Diurnal Variations in Tropical Cyclone Intensification.</span>
+                <span class="journal">Diurnal variations in tropical cyclone intensification.</span>
                 <span class="journal">Geophysical Research Letters</span>, 47(23), 2020.
                 <a href="https://doi.org/10.1029/2020GL090397">DOI</a>
             </div>
@@ -394,9 +438,9 @@
         <h2 class="section-title">Code & Tools</h2>
         <div class="skills">
             <span class="skill-tag">Python</span>
-            <span class="skill-tag">Xarray</span>
+            <span class="skill-tag">WRF</span>
+            <span class="skill-tag">COAWST</span>
             <span class="skill-tag">PyTorch</span>
-            <span class="skill-tag">MATLAB</span>
         </div>
         <div class="code-content">
             <p>
@@ -405,8 +449,9 @@
                 <a href="https://github.com/JiachengHong" target="_blank">GitHub <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:11px;"></i></a>.
             </p>
             <p>
-                Python has become my primary tool — its rich ecosystem (xarray, scikit-learn, PyTorch)
-                enables efficient workflows from satellite data processing to deep learning model development.
+                Python is my primary programming language for data analysis and model development.
+                I use the WRF and COAWST models for tropical cyclone numerical simulation,
+                and PyTorch for deep learning-based TC forecasting.
             </p>
         </div>
     </div>
@@ -424,7 +469,7 @@
 <footer>
     <div class="container">
         <p>
-            <b>Jiacheng Hong</b> · hongjc1996@163.com<br>
+            <b>Jiacheng Hong</b> · hongjiacheng@sio.org.cn<br>
             Copyright &copy; 2024 Jiacheng Hong
         </p>
     </div>
